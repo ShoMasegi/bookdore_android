@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/navigation"
+    app:startDestination="@+id/cards_screen">
+
+    <fragment
+        android:id="@+id/cards_screen"
+        android:name="com.sho.masegi.bookdore.views.cards.CardsScreen"
+        android:label="fragment_cards_screen"
+        tools:layout="@layout/fragment_cards_screen"/>
+
+</navigation>
