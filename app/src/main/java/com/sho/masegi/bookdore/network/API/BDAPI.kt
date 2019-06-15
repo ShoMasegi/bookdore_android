@@ -6,7 +6,6 @@ import retrofit2.http.GET
 
 interface BDAPI {
 
-    // TODO: Rename Type String to CardsScreen
     @GET("/cards.json")
     suspend fun cards(): ResponseData<Cards>
 }

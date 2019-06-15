@@ -26,6 +26,9 @@ android {
     dataBinding {
         enabled = true
     }
+    androidExtensions {
+        experimental = true
+    }
 }
 
 dependencies {
@@ -35,6 +38,10 @@ dependencies {
     implementation deps.support.appcompat
     implementation deps.support.core
     implementation deps.support.constraint_layout
+    implementation deps.support.v4
+
+    implementation deps.lifecycle.extensions
+    implementation deps.lifecycle.viewmodel_ktx
 
     implementation deps.navigation.runtime
     implementation deps.navigation.runtime_ktx
@@ -44,6 +51,13 @@ dependencies {
     implementation deps.navigation.ui_ktx
 
     implementation deps.material.core
+
+    implementation deps.groupie.runtime
+    implementation deps.groupie.extensions
+    implementation deps.groupie.databinding
+
+    implementation deps.glide.runtime
+    annotationProcessor deps.glide.annotation
 
     implementation deps.coroutines.core
     implementation deps.coroutines.android
@@ -65,9 +79,6 @@ dependencies {
     implementation deps.koin.androidx_viewmodel
     implementation deps.koin.androidx_ext
 
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    implementation 'androidx.lifecycle:lifecycle-extensions:2.0.0'
-    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.0.0'
     testImplementation deps.atsl.junit
     androidTestImplementation deps.atsl.ext_junit
     androidTestImplementation deps.atsl.espresso

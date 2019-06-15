@@ -8,7 +8,6 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 
 object Client {
 
-
     fun retrofit(baseUrl: String): Retrofit {
         val moshi = Moshi.Builder()
                          .add(KotlinJsonAdapterFactory())

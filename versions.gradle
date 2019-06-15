@@ -1,6 +1,7 @@
 ext.deps = [:]
 def versions = [:]
 versions.support = "1.0.2"
+versions.support_v4 = "1.0.0"
 versions.material = "1.1.0-alpha07"
 versions.navigation = "2.1.0-alpha05"
 versions.constraint_layout = "1.1.3"
@@ -12,11 +13,15 @@ versions.atsl_ext_junit = "1.1.1"
 versions.atsl_espresso = "3.2.0"
 versions.koin = "2.0.1"
 versions.coroutines = "1.3.0-M1"
+versions.lifecycle = "2.0.0"
+versions.groupie = "2.3.0"
+versions.glide = "4.9.0"
 ext.versions = versions
 
 def support = [:]
 support.appcompat = "androidx.appcompat:appcompat:$versions.support"
 support.core = "androidx.core:core-ktx:$versions.support"
+support.v4 = "androidx.legacy:legacy-support-v4:$versions.support_v4"
 deps.support = support
 
 deps.support.constraint_layout = "androidx.constraintlayout:constraintlayout:$versions.constraint_layout"
@@ -71,4 +76,21 @@ atsl.junit = "junit:junit:$versions.atsl_junit"
 atsl.ext_junit = "androidx.test.ext:junit:$versions.atsl_ext_junit"
 atsl.espresso = "androidx.test.espresso:espresso-core:$versions.atsl_espresso"
 deps.atsl = atsl
+
+def lifecycle = [:]
+lifecycle.extensions = "androidx.lifecycle:lifecycle-extensions:$versions.lifecycle"
+lifecycle.viewmodel_ktx = "androidx.lifecycle:lifecycle-viewmodel-ktx:$versions.lifecycle"
+deps.lifecycle = lifecycle
+
+def groupie = [:]
+groupie.runtime = "com.xwray:groupie:$versions.groupie"
+groupie.extensions = "com.xwray:groupie-kotlin-android-extensions:$versions.groupie"
+groupie.databinding = "com.xwray:groupie-databinding:$versions.groupie"
+deps.groupie = groupie
+
+def glide = [:]
+glide.runtime = "com.github.bumptech.glide:glide:$versions.glide"
+glide.annotation = "com.github.bumptech.glide:compiler:$versions.glide"
+deps.glide = glide
 ext.deps = deps
+
