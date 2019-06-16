@@ -29,11 +29,18 @@ android {
     androidExtensions {
         experimental = true
     }
+    packagingOptions {
+        exclude 'META-INF/*.kotlin_module'
+        exclude 'META-INF/*.version'
+        exclude 'META-INF/proguard/*.pro'
+    }
 }
+
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation deps.kotlin.stdlibJvm
+    implementation deps.kotlin.stdlibCommon
 
     implementation deps.support.appcompat
     implementation deps.support.core
@@ -68,6 +75,11 @@ dependencies {
     implementation deps.moshi.kotlin
     implementation deps.okhttp.runtime
     implementation deps.okhttp.logging_interceptor
+
+    implementation deps.ktor.clientAndroid
+    implementation deps.ktor.jsonCommon
+    implementation deps.ktor.jsonJvm
+    implementation deps.ktor.gson
 
     implementation deps.koin.core
     implementation deps.koin.ext_core
