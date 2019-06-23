@@ -5,6 +5,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.sho.masegi.bookdore.domain.model.Cards
+import com.sho.masegi.bookdore.network.API.BDAPI
+import com.sho.masegi.bookdore.network.ResponseData
 import com.sho.masegi.bookdore.network.Networking
 import kotlinx.coroutines.*
 
@@ -22,7 +24,7 @@ class CardsViewModel(
 
     private fun fetch() = viewModelScope.launch {
         _isLoading.value = true
-        _cards.value = networking.bdapi.cards().data
+        _cards.value = networking.request<ResponseData<Cards>>(BDAPI.Cards).await().data
         _isLoading.value = false
     }
 }

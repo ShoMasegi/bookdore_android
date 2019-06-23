@@ -1,12 +1,12 @@
 package com.sho.masegi.bookdore.domain.model
 
-import com.squareup.moshi.Json
+import com.google.gson.annotations.SerializedName
 
 data class Card(
     val id: Int,
     var status: Status,
-    @Json(name = "spent_time_sec") var spentTimeSec: Float,
-    @Json(name = "current_page") var currentPage: Int,
+    @SerializedName("spent_time_sec") var spentTimeSec: Float,
+    @SerializedName("current_page") var currentPage: Int,
     val book: Book,
     val user: User
 )

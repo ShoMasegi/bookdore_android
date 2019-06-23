@@ -1,6 +1,7 @@
 package com.sho.masegi.bookdore
 
 import android.app.Application
+import com.sho.masegi.bookdore.network.Client
 import com.sho.masegi.bookdore.network.Networking
 import com.sho.masegi.bookdore.views.cards.CardsViewModel
 import org.koin.android.ext.koin.androidContext
@@ -11,8 +12,12 @@ import org.koin.dsl.module
 
 class Application: Application() {
 
+    private val clientModule: Module = module {
+        factory { Client.httpClient() }
+    }
+
     private val networkModule: Module = module {
-        single { Networking }
+        single { Networking(get()) }
     }
 
     private val viewModelModule: Module = module {
@@ -23,7 +28,7 @@ class Application: Application() {
         super.onCreate()
         startKoin {
             androidContext(this@Application)
-            modules(listOf(networkModule, viewModelModule))
+            modules(listOf(networkModule, viewModelModule, clientModule))
         }
     }
 }
